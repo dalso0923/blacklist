@@ -1,0 +1,4 @@
+pyinstaller
+1. logo 이미지로 failed to execute Script 에러 발생
+2. domain 저장 시, 실행하지 않고 프로그램 종료됨 
+   py형식일 때는 무리없이 실행됨. 아무래도 nslookup 쪽 문제일거라 생각
