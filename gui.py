@@ -1,7 +1,22 @@
+"""
+회사로 악성메일 유입시, 차단해야할 IP와 네트워크 대역대, 도메인을 입력함
+입력된 대상의 형식에 맞추어 차단 리스트 파일을 만들어 저장함
+저장 위치는 사용자가 정할 수 있고, 파일이름은 '대상_저장날짜_저장시간'으로 고정
+사용자는 파일을 각 방화벽으로 업로드하면 차단 객체 생성을 할 수 있음
+
+명명규칙 ::
+함수 - '동작_대상', 모두 소문자, 두개의 단어는 '_'로 구분
+
+
+author  soae0923@gmail.com
+version 1.0, 20/08/18
+since   python3.8.5
+"""
+
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
-from common_module.in_out import InputModule, OutputModule
+from common_module.in_out import InputModule
 from black.black_domain import BlackDomain
 from black.black_ip import BlackIP
 from black.black_network import BlackNetwork
@@ -14,15 +29,15 @@ class MyApp(QWidget):
 
     def initUI(self):
         self.setWindowTitle('Blacklist')
-        # self.setWindowIcon(QIcon('blocked.png'))
+        self.setWindowIcon(QIcon('E:/leesa/blacklist/cat.png'))
         font = QFont()
         font.setFamily("나눔스퀘어")
         #stylesheet 적용하는법 찾아보기
 
         #===========1행 [차단 대상 선택하기] ===========#
-        #"""
-        # IP, Network, Domain 중 차단 대상을 선택한다
-        # """
+        """
+        IP, Network, Domain 중 차단 대상을 선택한다
+        """
 
         label_obj = QLabel("차단대상")
         label_obj.setFont(font)
@@ -39,13 +54,13 @@ class MyApp(QWidget):
         box_obj.setContentsMargins(10, 10, 10, 10)
 
         # ===========2행 [차단 대상 입력하기] ===========#
-        #"""
-        # 입련란에 차단 IP, Domain을 입력하고
-        # '입력'버튼을 눌러서
-        # 확인란에서 제대로 입력되었는지 확인한다
-        # 제대로 입력이 되지 않았을 경우
-        # '재입력'버튼을 눌러서 다시 입력한다
-        # """
+        """
+        입련란에 차단 IP, Domain을 입력하고
+        '입력'버튼을 눌러서
+        확인란에서 제대로 입력되었는지 확인한다
+        제대로 입력이 되지 않았을 경우
+        '재입력'버튼을 눌러서 다시 입력한다
+        """
         ## [2행 1열 : 입력란]
 
         label_input = QLabel("입력")
@@ -98,11 +113,11 @@ class MyApp(QWidget):
         box_data.setContentsMargins(10, 10, 10, 10)
 
         # ===========3행 [저장경로] ===========#
-        #"""
-        # '찾아보기'버튼을 눌러
-        # 저장경로를 설정한다
-        # 설정이 완료된 경우, '저장'버튼을 눌러서 보고서를 저장
-        # """
+        """
+        '찾아보기'버튼을 눌러
+        저장경로를 설정한다
+        설정이 완료된 경우, '저장'버튼을 눌러서 보고서를 저장
+        """
 
         label_path = QLabel("저장경로")
         label_path.setFont(font)
