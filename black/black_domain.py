@@ -5,8 +5,7 @@ from common_module.in_out import OutputModule
 class BlackDomain(OutputModule):
 
     def __init__(self, data_list):
-        self.data = data_list
-        super(OutputModule, self).__init__()
+        super().__init__(data_list)
         self.data_set = []
         self.domain_set_ns = []
         self.domain = ""
@@ -50,4 +49,4 @@ class BlackDomain(OutputModule):
         with open(f"{dir}/{fname}_{self.date}.csv", 'w', encoding='utf-8-sig') as f:
             f.write("ZONE,도메인 객체 이름,도메인 네임,IPv4,IPv6,설명\n")  # 맨위에 목록 작성
             f.write(f"E,{self.domain}_공격차단")
-            f.write(f',{self.domain},"{self.ipv4_set}",{self.ipv6_set},{self.date}_악성메일유포차단\n')
+            f.write(f',{self.domain},"{self.ipv4_set}",{self.ipv6_set},{self.date2}_악성메일유포차단\n')
