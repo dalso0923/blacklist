@@ -15,6 +15,7 @@ class OutputModule():
 
     now = datetime.datetime.now()
     date = now.strftime("%Y%m%d_%H%M%S")
+    date2 = date = now.strftime("%Y%m%d")
 
     def __init__(self, data_list):
         self.data = data_list
